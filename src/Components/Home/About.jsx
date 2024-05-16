@@ -22,8 +22,8 @@ const About = () => {
                     </div>
                     <div data-aos="fade-right" className="w-48 mx-3 my-2 rounded-lg bg-gray-200"></div>
                     <div data-aos="fade-left" className='h-full w-full lg:p-0 p-3'>
-                        <p className='poppins-semibold bg-blue lg:text-7xl text-right border-2 rounded-xl mt-2 lg:ml-1 lg:h-[160px]'>ABOUT US</p>
-                        <p className='lg:ml-52 mt-1   text-right'>Our team of writers, developers, and tech enthusiasts are dedicated to delivering high-quality content that informs, educates, and inspires. With a keen eye for detail and a commitment to accuracy, we aim to demystify complex topics and make them accessible to everyone.</p>
+                        <p className='poppins-semibold bg-blue lg:text-7xl text-right border-2 rounded-xl mt-2 lg:ml-1 lg:h-[180px]'>ABOUT US</p>
+                        <p className='lg:ml-52 mt-1   text-right'>Our team of writers, developers, and tech enthusiasts <br /> are dedicated to delivering high-quality content that informs, educates, and inspires. With a keen eye for detail and a commitment <br /> to accuracy, we aim to demystify complex topics and make them accessible to everyone.</p>
                         <div data-aos="fade-up" className='flex justify-end'>
                             <div className='border-2 border-black mb-[1px] px-1 py-1  w-full mt-[20px] mx-2 flex justify-center'>
                                 <img  className='h-[390px] w-full lg:flex hidden' src="https://i.ibb.co/nfTSy31/Screenshot-2024-05-11-at-5-10-00-PM.png" alt="" />

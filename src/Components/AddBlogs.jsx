@@ -34,7 +34,7 @@ const AddBlogs = () => {
 
 
         // send data to server
-        fetch('http://localhost:5500/addBlogs',{
+        fetch('brain-blogs-serverside.vercel.app/addBlogs',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

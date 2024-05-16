@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+// import {useVueTable} from '@tanstack/vue-table'
 
 
 const FeaturedBlogs = () => {
@@ -21,7 +22,15 @@ const FeaturedBlogs = () => {
 
     const allBlogs = allBlogsF.slice(0,10);
 
+
+
+
+    // tanstak table
+
+    // const table = useVueTable();
+
     return (
+        <>
         <div>
             <div className="overflow-x-auto lg:mr-20 lg:ml-28 mt-5 animate__animated animate__fadeInUp">
                 <table className="table">
@@ -44,6 +53,10 @@ const FeaturedBlogs = () => {
                 </table>
             </div>
         </div>
+        <div>
+
+        </div>
+        </>
     );
 };
 

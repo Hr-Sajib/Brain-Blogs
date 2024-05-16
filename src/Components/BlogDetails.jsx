@@ -28,7 +28,8 @@ const BlogDetails = () => {
     const [allComments, setAllComments] = useState(null);
 
     useEffect(()=>{
-        fetch(`http://localhost:5500/getComments/${blogId}`)
+        fetch(`brain-blogs-serverside.vercel.app
+/getComments/${blogId}`)
         .then(res=>res.json())
         .then(data=>{
             setAllComments(data);
@@ -37,7 +38,8 @@ const BlogDetails = () => {
     },[])
 
     const fetchComments = () => {
-        fetch(`http://localhost:5500/getComments/${blogId}`)
+        fetch(`brain-blogs-serverside.vercel.app
+/getComments/${blogId}`)
             .then(res => res.json())
             .then(data => {
                 setAllComments(data);
@@ -60,7 +62,7 @@ const BlogDetails = () => {
 
         (user) ?
 
-        fetch('http://localhost:5500/addComment', {
+        fetch('brain-blogs-serverside.vercel.app/addComment', {
             method:"POST",
             headers:{
                 'content-type':'application/json'

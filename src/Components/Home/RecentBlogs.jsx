@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { useQuery } from 'react-query';
+
 
 const RecentBlogs = () => {
 
@@ -17,7 +19,7 @@ const RecentBlogs = () => {
 
   //get all blogs data
   useEffect(()=>{
-    axios.get('http://localhost:5500/getBlogs', {withCredentials:true})
+    axios.get('https://brain-blogs-serverside.vercel.app/getBlogs', {withCredentials:true})
     .then(res=>{
       if(res.data){
         setAllBlogs(res.data);
@@ -62,7 +64,7 @@ const RecentBlogs = () => {
 
           const wishedBlog = { userEmail, ids: newIds };
 
-          fetch("http://localhost:5500/addToWishlist", {
+          fetch("https://brain-blogs-serverside.vercel.app/addToWishlist", {
             method: "PUT",
             headers: {
               "content-type": "application/json",

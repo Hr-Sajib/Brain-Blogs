@@ -32,7 +32,7 @@ const LogIn = () => {
          //jwt user token get & set cookie
          const userEmail = res.user.email;
 
-         axios.post('http://localhost:5500/jwt', { email: userEmail }, {withCredentials:true})
+         axios.post('brain-blogs-serverside.vercel.app/jwt', { email: userEmail }, {withCredentials:true})
              .then(response => {
                  console.log(response.data);
                  if(response.data.success){
@@ -63,7 +63,7 @@ const LogIn = () => {
             //jwt user token get & set cookie
             const userEmail = res.user.email;
 
-            axios.post('http://localhost:5500/jwt', { email: userEmail }, {withCredentials:true})
+            axios.post('brain-blogs-serverside.vercel.app/jwt', { email: userEmail }, {withCredentials:true})
                 .then(response => {
                     console.log(response.data);
                     if(response.data.success){

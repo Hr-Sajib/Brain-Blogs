@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home/>,
-        loader: ()=> fetch('http://localhost:5500/getBlogs'),
+        loader: ()=> fetch('https://brain-blogs-serverside.vercel.app/getBlogs'),
       },
       {
         path:'/signup',
@@ -48,37 +48,37 @@ const router = createBrowserRouter([
       {
         path:'/allBlogs',
         element:<AllBlogs/>,
-        loader: ()=> fetch('http://localhost:5500/getBlogs'),
+        loader: ()=> fetch('https://brain-blogs-serverside.vercel.app/getBlogs'),
       },
       {
         path:'/allBlogs/getBlogDetails/:id',
         element:<BlogDetails/>,
-        loader: ({params})=> fetch(`http://localhost:5500/getBlogDetails/${params.id}`),
+        loader: ({params})=> fetch(`https://brain-blogs-serverside.vercel.app/getBlogDetails/${params.id}`),
       },
       {
         path:'/getBlogDetails/:id',
         element:<BlogDetails/>,
-        loader: ({params})=> fetch(`http://localhost:5500/getBlogDetails/${params.id}`),
+        loader: ({params})=> fetch(`https://brain-blogs-serverside.vercel.app/getBlogDetails/${params.id}`),
       },
       {
         path:'/wishList/getBlogDetails/:id',
         element:<BlogDetails/>,
-        loader: ({params})=> fetch(`http://localhost:5500/getBlogDetails/${params.id}`),
+        loader: ({params})=> fetch(`https://brain-blogs-serverside.vercel.app/getBlogDetails/${params.id}`),
       },
       {
         path:'/update/:id',
         element:<PrivateRoute><UpdateBlog/></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5500/getBlogDetails/${params.id}`),
+        loader: ({params})=> fetch(`https://brain-blogs-serverside.vercel.app/getBlogDetails/${params.id}`),
       },
       {
         path:'/featuredBlogs',
         element:<FeaturedBlogs/>,
-        loader: ()=> fetch('http://localhost:5500/getBlogs'),
+        loader: ()=> fetch('https://brain-blogs-serverside.vercel.app/getBlogs'),
       },
       {
         path:'/wishList',
         element:<PrivateRoute><Wishlist/></PrivateRoute>,
-        loader: ()=> fetch('http://localhost:5500/getBlogs'),
+        loader: ()=> fetch('https://brain-blogs-serverside.vercel.app/getBlogs'),
       },
     ]
   },

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { createContext } from 'react';
 import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import  auth from '../../firebase/firebase.config'; // Import auth from your Firebase configuration file
+import axios from 'axios';
 
 
 export const AuthContext = createContext(null);
@@ -59,7 +60,7 @@ const AuthProvider = ({children}) => {
 
      // wishlist id array
      const [wishListIdsArray, setWishListIdsArray] = useState([]);
-     console.log('in auth: ', wishListIdsArray);
+    //  console.log('in auth: ', wishListIdsArray);
 
 
 
@@ -70,24 +71,25 @@ const AuthProvider = ({children}) => {
      const userEmail = user?.email;
 
  
+     
     useEffect(()=>{
   
-        fetch(`http://localhost:5500/getWishlist/${userEmail}`)
-        .then(r=>r.json())
+        axios.get(`https://brain-blogs-serverside.vercel.app/getWishlist/${userEmail}`, {withCredentials:true})
         .then(d=>{
-            console.log('fetched data :',d);
-            const Ids = d[0].ids || [];
+            console.log('fetched data :',d.data);
+            const Ids = d.data[0].ids || [];
             setWishlistIDs(Ids);
         })
-        .catch(error => {
-            console.error('Error fetching wishlist data:', error);
-        });
+        .catch(error=>{
+            console.log(error.message);
+        })
+       
 
     },[userEmail])
  
 
-
-
+    console.log(WishlistIDs);
+     
 
 
 

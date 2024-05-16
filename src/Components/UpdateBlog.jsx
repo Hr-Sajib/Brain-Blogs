@@ -33,7 +33,8 @@ const UpdateBlog = () => {
 
 
         // send updates to server
-        fetch(`http://localhost:5500/update/${blog._id}`,{
+        fetch(`brain-blogs-serverside.vercel.app
+/update/${blog._id}`,{
             method:"PUT",
             headers:{
                 'content-type':'application/json'

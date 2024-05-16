@@ -5,6 +5,7 @@ import { AuthContext } from './AuthProvider/AuthProvider';
 import Aos from "aos";
 import 'aos/dist/aos.css'
 import { toast, ToastContainer } from 'react-toastify';
+import axios from 'axios';
 import "react-toastify/dist/ReactToastify.css";
 
 const Wishlist = () => {
@@ -16,13 +17,12 @@ const Wishlist = () => {
 
     useEffect(() => {
         if (user) {
-            // Fetch wishlist data
             fetchWishlistData();
         }
     }, [user]);
 
     const fetchWishlistData = () => {
-        fetch(`http://localhost:5500/getWishlist/${user.email}`)
+        fetch(`https://brain-blogs-serverside.vercel.app/getWishlist/${user.email}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch wishlist data');
@@ -49,14 +49,24 @@ const Wishlist = () => {
         return <div className='text-center'>Loading...</div>;
     }
 
+
+
+
+
+
+
+
+
+
     const handleRemove = (id) => {
         // Remove the item from the wishlist
         const newWishedIds = wishListIdsArray.filter(wishid => wishid !== id);
         const userEmail = user.email;
         
-        const newWishList = { userEmail, newWishedIds };
+        const newWishList = { userEmail, ids:newWishedIds };
+        console.log('New Wish List',newWishList);
 
-        fetch('http://localhost:5500/addToWishlist', {
+        fetch('https://brain-blogs-serverside.vercel.app/addToWishlist', {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -78,10 +88,18 @@ const Wishlist = () => {
         });
     };
 
+
+
+
+
+
+
+
+
     return (
         <div>
             <ToastContainer/>
-            <div className='grid lg:grid-cols-2 lg:mx-16 mx-1 h-[400px]'>
+            <div className='grid lg:grid-cols-2 lg:mx-16 mx-1 mb-[650px]'>
                 {
                     myWishedBlogs.map(blog => <Blog blog={blog} key={blog._id} handleRemove={handleRemove} />)
                 }
