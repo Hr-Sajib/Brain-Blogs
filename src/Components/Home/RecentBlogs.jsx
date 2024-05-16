@@ -130,7 +130,7 @@ export default RecentBlogs;
 
 const Blog = ({ blog, handleWishlistClicked }) => {
   return (
-    <div className="bg-blue-100 rounded-xl lg:flex gap-5 lg:p-5 p-1 lg:w-[875px]">
+    <div data-aos="fade-down" className="bg-blue-100 rounded-xl lg:flex gap-5 lg:p-5 p-1 lg:w-[875px]">
       <img className="h-48 lg:w-56 w-full rounded-xl" src={blog.imageurl} alt="" />
       <div className="flex flex-col justify-between">
         <p className="font-bold mb-2">{blog.title}</p>
