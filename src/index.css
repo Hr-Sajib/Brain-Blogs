@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:focus {
+    outline: none;
+
+  }
+
+textarea:focus{
+  outline: none;
+}
+
+select :focus{
+  outline: none;
+
+}
+
+
+#exloreBtn{
+  width: 250px; /* Initial width */
+  transition: width 0.3s ease;
+}
+
+#exloreBtn:hover{
+  width: 500px; /* Final width */
+}
