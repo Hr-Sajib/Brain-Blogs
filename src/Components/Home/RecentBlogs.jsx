@@ -6,30 +6,31 @@ import "aos/dist/aos.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { useQuery } from 'react-query';
+import { useQuery } from "@tanstack/react-query";
+import {fetchBlogs} from '../../api'
+import {motion} from 'framer-motion' 
+
 
 
 const RecentBlogs = () => {
 
-  const [allBlogs, setAllBlogs] = useState([ ]);
-
+  
   const navigate = useNavigate();
 
 
 
-  //get all blogs data
-  useEffect(()=>{
-    axios.get('https://brain-blogs-serverside.vercel.app/getBlogs', {withCredentials:true})
-    .then(res=>{
-      if(res.data){
-        setAllBlogs(res.data);
-        console.log(res.data);
-      }
-    })
-  },[])
+  const [allBlogs, setAllBlogs] = useState([ ]);
 
+  const {data, isLoading}= useQuery({
+    queryKey:'fetchBlogs',
+    queryFn:fetchBlogs,
+  })
+  useEffect(() => {
+    if (data) {
+      setAllBlogs(data);
+    }
+  }, [data]);
 
-  
 
 
   // Sort by time
@@ -94,6 +95,11 @@ const RecentBlogs = () => {
     Aos.init();
   }, []);
 
+    if (isLoading) {
+      return <p className="text-3xl text-center my-10">Loading...</p>;
+    }
+
+
   return (
     <div data-aos="fade-up" id="blogs">
       <p className="mt-36 text-4xl text-center">Recent Blogs</p>
@@ -101,15 +107,20 @@ const RecentBlogs = () => {
         Read the most current discussions in the tech world and actively
         participate
       </p>
-      <div className="grid lg:grid-cols-2 gap-2 mt-10">
+
+
+      <div className="grid lg:grid-cols-2 gap-2 mt-10 overflow-x-hidden">
         {recentBlogs.map((blog) => (
           <Blog
             blog={blog}
             key={blog._id}
             handleWishlistClicked={handleWishlistClicked}
-          />
+          >
+          </Blog>
         ))}
       </div>
+
+
       <ToastContainer /> 
     </div>
   );
@@ -119,7 +130,7 @@ export default RecentBlogs;
 
 const Blog = ({ blog, handleWishlistClicked }) => {
   return (
-    <div data-aos="fade-down" className="bg-blue-100 rounded-xl lg:flex gap-5 lg:p-5 p-1 lg:w-[875px]">
+    <div className="bg-blue-100 rounded-xl lg:flex gap-5 lg:p-5 p-1 lg:w-[875px]">
       <img className="h-48 lg:w-56 w-full rounded-xl" src={blog.imageurl} alt="" />
       <div className="flex flex-col justify-between">
         <p className="font-bold mb-2">{blog.title}</p>

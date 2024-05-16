@@ -4,14 +4,13 @@ import 'aos/dist/aos.css'
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import {fetchBlogs} from '../api'
 
 
 const AllBlogs = () => {
 
-    const loadedAllBlogs = useLoaderData();
-
-    // Store the original data in a separate state variable
-    const [originalAllBlogs, setOriginalAllBlogs] = useState(loadedAllBlogs);
+    const originalAllBlogs = useLoaderData();
 
     // Use allBlogs state variable for filtered data
     const [allBlogs, setAllBlogs] = useState(originalAllBlogs);
@@ -51,7 +50,7 @@ const AllBlogs = () => {
             <div className="lg:flex justify-between lg:mx-16 mx-1">
                 <form onSubmit={handleFilter}>
                     <div className="flex gap-2">
-                        <select name="category" className='h-12 mt-2 bg-blue-100 mb-3 rounded-xl w-36  p-3'>
+                        <select name="category" className='h-12 mt-2 bg-blue-100 mb-3 rounded-xl  p-3'>
                                 <option value="">Select Category</option>
                                 <option value="JavaScript">JavaScript</option>
                                 <option value="Machine Learning">Machine Learning</option>
@@ -69,7 +68,7 @@ const AllBlogs = () => {
                 </form>
                 <form onSubmit={handleSearch}>
                     <input type="text" name="searchText" className="border border-black h-12 mr-1 lg:w-[400px] rounded-lg px-3" />
-                    <input type="submit" className="h-12 mt-2 bg-blue-200 mb-3 rounded-xl w-32 p-3" value="Search" />
+                    <input type="submit" className="h-12 mt-2 bg-blue-200 hover:bg-blue-300 mb-3 rounded-xl w-32 p-3" value="Search" />
                 </form>
             </div>
             {

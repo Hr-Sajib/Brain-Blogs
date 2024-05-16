@@ -19,6 +19,11 @@ import FeaturedBlogs from './Components/FeaturedBlogs';
 import Wishlist from './Components/Wishlist';
 import Errorpage from './Components/Errorpage';
 import PrivateRoute from './Components/PrivateRoute.jsx/PrivateRoute';
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+
+
+
+const queryClient = new QueryClient();
 
 
 const router = createBrowserRouter([
@@ -30,7 +35,7 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home/>,
-        loader: ()=> fetch('https://brain-blogs-serverside.vercel.app/getBlogs'),
+        // used Tanstack Query to fetch ALL BLOG DATA inside Home
       },
       {
         path:'/signup',
@@ -86,8 +91,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <QueryClientProvider  client={queryClient}>
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 )
