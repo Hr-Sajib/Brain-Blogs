@@ -29,6 +29,18 @@ Authentication: Firebase Authentication, JWT Authentication
 Database: Firebase Realtime Database (for authentication), MongoDB (for blog data and wishlist)
 Deployment: Firebase (Client-side), Vercel (Server-side)
 
+Clone the repository:
+
+bash Copy code git clone https://github.com/Hr-Sajib/car-doctor-client.git Navigate to the project directory: cd car-doctor-client
+
+bash Copy code cd car-doctor-client Install dependencies: npm install
+
+bash Copy code npm install Start the application: npm start
+
+bash Copy code npm start By following these steps, you can have the Car Doctor Client project running on your local environment, ready for exploration and further development.
+
+This version maintains a more detailed description with over 200 words for each section: Project Overview, Features, Technologies Used, and Running the Project Locally.
+
 
 Contributors___
 
